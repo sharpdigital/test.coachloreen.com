@@ -17,6 +17,9 @@ collections:
   products:
     output: true
     permalink: /wellbeing-products/:title/
+  resources:
+    output: true
+    permalink: /health-resources/:title/
 
 # Build settings
 markdown: kramdown
