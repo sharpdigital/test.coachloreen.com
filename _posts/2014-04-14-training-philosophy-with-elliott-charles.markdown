@@ -4,7 +4,7 @@ title:  "TRAINING PHILOSOPHY WITH ELLIOTT CHARLES"
 date:   2014-04-14
 image:  http://i3.getsurrey.co.uk/incoming/article8129540.ece/ALTERNATES/s615/Charles.jpg
 categories:
- - Training
+ - 'Training'
 ---
 
 Without a doubt we all have our own unique approach to training; from why we train to the mentality we adopt while we train. The Training Philosophy Series will showcase a range of people who will share with us their own methods of training, what they love about training, what they find challenging, what helps them push through the pain barrier and some of the lighter moments they’ve experienced during their training sessions.
