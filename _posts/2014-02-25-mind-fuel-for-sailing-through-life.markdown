@@ -1,0 +1,16 @@
+---
+layout: post
+title:  "MIND FUEL FOR SAILING THROUGH LIFE"
+date:   2014-02-25
+image: https://static1.squarespace.com/static/51a4bbe6e4b0cf20ca0b6906/t/5689cd2d4bf118b4ed60052c/1451871535321/
+categories:
+ - 'Healthy Mind'
+---
+
+Life’s journey is an amazing treasure.  A gift of time given to us to be here on earth to learn and grow.
+
+How to move steadily through life while keeping pace with the demands of our work, home and relationships. It is a challenge we are all faced with and yet not all of us manage to strike the right balance. At different stages and ages in our lives, we choose to navigate this world at a pace we find optimal at that moment. For example, haring through our teens and twenties, powerwalking in our thirties and forties and steady stepping in our fifties and sixties. The key is our state of mind. So much is written and said about this and yet the only thing that really matters is being in control.
+
+A steady pace means you can see the fuller picture and choose each path with confidence and ease. It allows you to swerve the negative energies that inevitably comes our way, suck in any disappointment, wallow a little in it if you so choose, then dust yourself off and go on. The world around us feeds our minds visually and aurally, impacting on our emotions and thereby affecting our wellbeing. Technological advancement is shaping our consumption of information. So-called smartphones, mobile phones with a myriad of functions including access to the internet, can mean a bombardment of all sorts of information.  A lot of this information is designed to manipulate the way the consumer feels and being aware of this is a key step in maintaining good mental health.
+
+Understanding that what you feed your eyes, ears and therefore mind with is the difference between feeling like you’re running uphill and getting nowhere fast and purposefully walking in the right direction.
