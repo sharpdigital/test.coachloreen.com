@@ -9,6 +9,17 @@ dl, dd, ol, ul, figure {
 }
 
 
+#logo {
+    color: $text-color;
+    font-family: $logo-font-family;
+    font-size: $logo-font-size;
+    font-weight: $logo-font-weight;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
 
 /**
  * Basic styling
