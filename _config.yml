@@ -9,6 +9,12 @@ url: "http://www.coachloreen.com" # the base hostname & protocol for your site
 twitter_username: coachreen
 pinterest_username: coachloreen
 
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /blog/:title
+
 # Build settings
 markdown: kramdown
 permalink: pretty
