@@ -13,7 +13,10 @@ pinterest_username: coachloreen
 collections:
   posts:
     output: true
-    permalink: /blog/:title
+    permalink: /blog/:title/
+  products:
+    output: true
+    permalink: /wellbeing-products/:title/
 
 # Build settings
 markdown: kramdown
