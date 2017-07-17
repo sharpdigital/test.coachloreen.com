@@ -8,11 +8,15 @@ layout: default
   </header>
 
   <article class="post-content">
+    {% if page.intro %}
+    <div class="intro">{{ page.intro }}</div>
+    {% endif %}
+
     {% if page.image %}
     <img class="leader" src="{{ page.image }}" alt="{{ page.title }}">
     {% endif %}
 
-    {{ page.content}}
+    {{ content }}
   </article>
 
 </div>
