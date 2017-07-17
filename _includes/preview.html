@@ -1,0 +1,17 @@
+{% for item in include.items %}
+  {% cycle 'add row' : '<div class="row">', '', '' %}
+    <div class="col-sm-4">
+      <div class="preview-panel">
+        {% if item.type %}
+        <a href="{{ item.slug | prepend: '/' | prepend: item.type | prepend: '/'  | prepend: site.baseurl | append: '/' }}">
+        {% else %}
+        <a href="{{ item.url | prepend: site.baseurl }}">
+        {% endif %}
+          <img src="{{ item.image }}">
+          <span>{% include capitalize.html sentence=item.title %}</span>
+        </a>
+      </div>
+    </div>
+{% cycle 'end row' : '', '', '</div>' %}
+{% endfor %}
+{% cycle 'end row' : '', '</div>', '</div>' %}

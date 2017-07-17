@@ -1,0 +1,2 @@
+{% assign words = include.sentence | split: ' ' %}
+{% capture title %}{% for word in words %} {{ word | capitalize }}{% endfor %}{% endcapture %}{{ title | remove_first: ' ' }}

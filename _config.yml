@@ -1,0 +1,31 @@
+# Site settings
+title: Health and Wellbeing
+name: Coach Loreen
+email: grow@coachloreen.com
+description: > # this means to ignore newlines until "baseurl:"
+  I have worked with many businesses in achieving their financial and business goals. Yet the hundreds of people I help to achieve their health and wellbeing goals are absolutely way more inspiring.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://www.coachloreen.com" # the base hostname & protocol for your site
+produrl: "http://www.coachloreen.com" # the base hostname & protocol for your site
+twitter_username: coachreen
+pinterest_username: coachloreen
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /blog/:title/
+  products:
+    output: true
+    permalink: /wellbeing-products/:title/
+  resources:
+    output: true
+    permalink: /health-resources/:title/
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+
+# jekyll plugins
+gems:
+  - jekyll-sitemap
