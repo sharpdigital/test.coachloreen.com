@@ -1,4 +1,4 @@
 ---
 ---
 User-agent: *
-Disallow:{% if jekyll.environment != 'production' %} /{% endif %}
+Disallow:{% if site.produrl != site.github.url %} /{% endif %}
