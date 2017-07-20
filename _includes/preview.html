@@ -2,10 +2,10 @@
   {% cycle 'add row' : '<div class="row">', '', '' %}
     <div class="col-sm-4">
       <div class="preview-panel">
-        {% if item.type %}
+        {% if item.type != 'page' %}
         <a href="{{ item.slug | prepend: '/' | prepend: item.type | prepend: '/'  | prepend: site.github.url | append: '/' }}">
         {% else %}
-        <a href="{{ item.url | prepend: site.baseurl }}">
+        <a href="{{ item.url | prepend: site.github.url }}">
         {% endif %}
           <div class="imgwrap"><img src="{{ item.image }}"></div>
           <span>{% include capitalize.html sentence=item.title %}</span>
