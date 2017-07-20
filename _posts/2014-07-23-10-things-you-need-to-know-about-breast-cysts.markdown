@@ -1,6 +1,6 @@
 ---
 slug: 10-things-you-need-to-know-about-breast-cysts
-title: '10 THINGS YOU NEED TO KNOW ABOUT BREAST CYSTS'
+title: '10 Things you need to know about breast cysts'
 date: '2014-07-23'
 image: /assets/SMxXloOCukQeoi4iMI8mY.jpeg
 intro: 'The recent discovery of an unusual lumpy mass in my right breast had me running superfast to my doctors who referred me to the hospital for a scan.  I got an appointment very quickly and the scan identified the lumpy mass to be hormonal cysts. Nothing to worry about, no real definitive causes and no real cures according to the consultants but the holistic warrior in me wanted to know more so I dug further. Here are 10 things you should know about unusual lumps in your breasts:'

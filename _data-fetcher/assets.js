@@ -22,15 +22,26 @@ function saveAssets() {
 }
 
 function getAssetFromEntry(entry, fieldName) {
-  if (entry.fields.hasOwnProperty(fieldName)) {
-    assetsToSave.push(Object.assign(entry.fields[fieldName].fields, { id: entry.fields[fieldName].sys.id }));
+  if (entry.fields.hasOwnProperty(fieldName) && !!entry.fields[fieldName].fields) {
+    assetsToSave.push(
+      Object.assign(
+        entry.fields[fieldName].fields,
+        {
+          id: entry.fields[fieldName].sys.id
+        }
+      )
+    );
   }
 }
 
 function getAssetsByPath(assetPath) {
-  const [contentType, fieldName] = assetPath.split('.');
+  if (!!assetPath) {
+    const [contentType, fieldName] = assetPath.split('.');
 
-  entriesByType[contentType].map((entry) => getAssetFromEntry(entry, fieldName));
+    if (!!entriesByType[contentType] && !!entriesByType[contentType].map) {
+      entriesByType[contentType].map((entry) => getAssetFromEntry(entry, fieldName));
+    }
+  }
 }
 
 assetPaths.map((assetPath) => getAssetsByPath(assetPath));

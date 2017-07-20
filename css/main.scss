@@ -12,8 +12,9 @@ $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
 
 $logo-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$logo-font-size:   15vw;
-$logo-font-weight: 400;
+$logo-font-size:   5em;
+$logo-line-height: 1.1;
+$logo-font-weight: 200;
 
 $spacing-unit:     30px;
 
@@ -21,7 +22,7 @@ $text-color:       #111;
 $background-color: #fdfdfd;
 $brand-color:      #111;
 
-$grey-color:       #828282;
+$grey-color:       #ff5900;
 $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
 

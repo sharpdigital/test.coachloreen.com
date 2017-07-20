@@ -35,18 +35,20 @@ const config = [
         {
           on: 'title',
           run: (content) => {
-            switch (content.sys.contentType.sys.id) {
-              case 'blogArticles':
-                return content.fields.articleTitle;
-              break;
-              case 'page':
-                return content.fields.pageTitle;
-              break;
-              case 'resources':
-              case 'products':
-              case 'category':
-                return content.fields.name;
-              break;
+            if (content.sys.contentType) {
+              switch (content.sys.contentType.sys.id) {
+                case 'blogArticles':
+                  return content.fields.articleTitle;
+                break;
+                case 'page':
+                  return content.fields.pageTitle;
+                break;
+                case 'resources':
+                case 'products':
+                case 'category':
+                  return content.fields.name;
+                break;
+              }
             }
           }
         },
@@ -193,7 +195,7 @@ const config = [
   },
 ];
 
-function processImage(image) { if (!!image) return `/assets/${image.sys.id}.${image.fields.file.contentType.split('/')[1]}`; }
+function processImage(image) { if (!!image && !!image.fields && !!image.fields.file) return `/assets/${image.sys.id}.${image.fields.file.contentType.split('/')[1]}`; }
 
 function processCategories(categories) { if (!!categories) return categories.map((category) => category.fields.name); }
 
@@ -203,23 +205,25 @@ function saveData(dataToSave, contentType) {
   } else {
     fs.writeFileSync(`${projectRoot}_data/${contentType.contentType}.json`, JSON.stringify(dataToSave));
 
-    let path = `${projectRoot}${contentType.path}`;
-    dataToSave.map((item) => {
-      console.log('*****  [DATATOSAVE]:', contentType.filename, ' date:', item.date, ' slug:', item.slug);
-      let filename = path + contentType.filename.replace('{item.slug}', item.slug);
-      let hasDate = filename.indexOf('{item.date}') > -1;
-      console.log('***** [FILENAME halfway]:', hasDate, JSON.stringify(filename));
-      if (hasDate) {
-        filename = filename.replace('{item.date}', item.date);
-      }
-      console.log('***** [FILENAME end]:', JSON.stringify(filename));
-      let frontMatter = `---\n${YAML.stringify(item)}\n---`;
-      let fileContent = contentType.template
-        .replace('{front-matter}', frontMatter)
-        .replace('{content}', item.content);
+    if (!!dataToSave.map) {
+      let path = `${projectRoot}${contentType.path}`;
+      dataToSave.map((item) => {
+        console.log('*****  [DATATOSAVE]:', contentType.filename, ' date:', item.date, ' slug:', item.slug);
+        let filename = path + contentType.filename.replace('{item.slug}', item.slug);
+        let hasDate = filename.indexOf('{item.date}') > -1;
+        console.log('***** [FILENAME halfway]:', hasDate, JSON.stringify(filename));
+        if (hasDate) {
+          filename = filename.replace('{item.date}', item.date);
+        }
+        console.log('***** [FILENAME end]:', JSON.stringify(filename));
+        let frontMatter = `---\n${YAML.stringify(item)}\n---`;
+        let fileContent = contentType.template
+          .replace('{front-matter}', frontMatter)
+          .replace('{content}', item.content);
 
-      fs.writeFileSync(filename, fileContent);
-    });
+        fs.writeFileSync(filename, fileContent);
+      });
+    }
   }
 }
 
