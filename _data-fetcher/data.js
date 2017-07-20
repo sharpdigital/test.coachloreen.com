@@ -57,7 +57,7 @@ const config = [
           run: (type) => {
             let typeMap = {
               blogArticles: 'blog',
-              page: '',
+              page: '.',
               resources: 'health-resources',
               products: 'wellbeing-products',
               category: 'category'
@@ -200,6 +200,34 @@ function processImage(image) { if (!!image && !!image.fields && !!image.fields.f
 function processCategories(categories) { if (!!categories) return categories.map((category) => category.fields.name); }
 
 function saveData(dataToSave, contentType) {
+  //console.log('##### save data', contentType.map.list, dataToSave.length);
+  if (dataToSave.length && dataToSave.length > 0){
+    //console.log('#### sort');
+    var orderBy = null;
+    if (dataToSave[0].date) orderBy = 'date';
+    if (dataToSave[0].order) orderBy = 'order';
+
+    if (!!orderBy) {
+      //console.log('#### by', orderBy);
+      dataToSave = dataToSave.sort(function(a, b) {
+        if (!a[orderBy]) return 1;
+        if (!b[orderBy]) return -1;
+        if (a[orderBy] > b[orderBy]) {
+          if (orderBy == 'date')
+            return -1;
+          else
+            return 1;
+        }
+        if (a[orderBy] < b[orderBy]) {
+          if (orderBy == 'date')
+            return 1;
+          else
+            return -1;
+        }
+        return 0;
+      });
+    }
+  }
   if (contentType.bulk) {
     fs.writeFileSync(`${projectRoot}${contentType.path}`, JSON.stringify(dataToSave));
   } else {
@@ -208,14 +236,14 @@ function saveData(dataToSave, contentType) {
     if (!!dataToSave.map) {
       let path = `${projectRoot}${contentType.path}`;
       dataToSave.map((item) => {
-        console.log('*****  [DATATOSAVE]:', contentType.filename, ' date:', item.date, ' slug:', item.slug);
+        //console.log('*****  [DATATOSAVE]:', contentType.filename, ' date:', item.date, ' slug:', item.slug);
         let filename = path + contentType.filename.replace('{item.slug}', item.slug);
         let hasDate = filename.indexOf('{item.date}') > -1;
-        console.log('***** [FILENAME halfway]:', hasDate, JSON.stringify(filename));
+        //console.log('***** [FILENAME halfway]:', hasDate, JSON.stringify(filename));
         if (hasDate) {
           filename = filename.replace('{item.date}', item.date);
         }
-        console.log('***** [FILENAME end]:', JSON.stringify(filename));
+        //console.log('***** [FILENAME end]:', JSON.stringify(filename));
         let frontMatter = `---\n${YAML.stringify(item)}\n---`;
         let fileContent = contentType.template
           .replace('{front-matter}', frontMatter)

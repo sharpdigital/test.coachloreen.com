@@ -3,21 +3,34 @@ const request = require('request');
 
 const entriesByType = require('./entriesByType.json');
 const assetFolder = '../assets';
-const assetPaths = ['products.image', 'resources.image', 'resources.file', 'blogArticles.image'];
+const assetPaths = ['products.image', 'resources.image', 'resources.file', 'blogArticles.image', 'page.image'];
 let assetsToSave = [];
 
-function download(uri, filename, callback){
+function download(uri, filename, successCallback, errorCallback){
   request.head(uri, function(err, res, body){
-    request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+    request(uri)
+      .pipe(fs.createWriteStream(filename))
+      .on('close', successCallback)
+      .on('error', errorCallback);
   });
 };
 
 function saveAssets() {
+  //console.log('#### expect to download asset:', assetsToSave.length);
   assetsToSave.map((asset) => {
     let url = `http:${asset.file.url}`;
     let origExt = asset.file.contentType.split('/')[1];
     let filename = `${assetFolder}/${asset.id}.${origExt}`;
-    download(url, filename, () => {});
+    download(
+      url,
+      filename,
+      (close) => {
+        //console.log('#### [CLOSE downloading asset]:', asset);
+      },
+      (error) => {
+        console.log('#### [ERROR downloading asset]:', error);
+      }
+    );
   });
 }
 

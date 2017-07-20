@@ -3,7 +3,7 @@
     <div class="col-sm-4">
       <div class="preview-panel">
         {% if item.type %}
-        <a href="{{ item.slug | prepend: '/' | prepend: item.type | prepend: '/'  | prepend: site.baseurl | append: '/' }}">
+        <a href="{{ item.slug | prepend: '/' | prepend: item.type | prepend: '/'  | prepend: site.github.url | append: '/' }}">
         {% else %}
         <a href="{{ item.url | prepend: site.baseurl }}">
         {% endif %}

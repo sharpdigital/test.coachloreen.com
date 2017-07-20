@@ -118,6 +118,7 @@ a {
 
     &:hover {
         color: $grey-color-dark;
+        text-decoration: none;
     }
 
     .nav > li > &:hover {
@@ -231,6 +232,7 @@ pre {
     height: 150px;
     overflow: visible;
     text-align: center;
+
 
     img {
         height: 100%;
