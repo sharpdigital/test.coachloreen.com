@@ -7,7 +7,7 @@
         {% else %}
         <a href="{{ item.url | prepend: site.github.url }}">
         {% endif %}
-          <div class="imgwrap"><img src="{{ item.image }}"></div>
+          <div class="imgwrap"><img src="{{ item.image | prepend: site.github.url }}"></div>
           <span>{% include capitalize.html sentence=item.title %}</span>
         </a>
       </div>

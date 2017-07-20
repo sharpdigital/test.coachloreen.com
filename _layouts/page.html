@@ -13,7 +13,7 @@ layout: default
     {% endif %}
 
     {% if page.image %}
-    <img class="leader" src="{{ page.image }}" alt="{{ page.title }}">
+    <img class="leader" src="{{ page.image | prepend: site.github.url }}" alt="{{ page.title }}">
     {% endif %}
 
     {{ content }}

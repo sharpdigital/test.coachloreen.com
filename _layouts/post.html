@@ -10,7 +10,7 @@ layout: default
     <div class="intro">{{ page.excerpt }}</div>
 
     {% if page.image %}
-    <img class="leader" src="{{ page.image }}" alt="{{ page.title }}">
+    <img class="leader" src="{{ page.image | prepend: site.github.url }}" alt="{{ page.title }}">
     {% endif %}
 
     {{ page.content | remove_first:page.excerpt }}
